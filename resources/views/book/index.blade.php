@@ -2,7 +2,7 @@
 
 @section('title', 'index')
 
-@section('menuber')
+@section('menuber','表示ページ')
 
 @section('content')
     <table>
@@ -17,7 +17,7 @@
                 <td>{{$item->id}}</td>
                 <td>{{$item->name}}</td>
                 <td>{{$item->other}}</td>
-                <td>{{$item->price}}</td>
+                <td>{{$item->price}}円</td>
             </tr>
         @endforeach
     </table>
