@@ -2,6 +2,15 @@
 
 <head>
     <title>@yield('title')</title>
+    <style>
+        th{
+            background-color: gray;
+            color: white;
+        }
+        table,th,td{
+            border: 1px solid black;
+        }
+    </style>
 </head>
 
 <body>
