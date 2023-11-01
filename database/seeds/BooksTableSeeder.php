@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
 use Illuminate\Support\Facades\DB;
 
-class BookTableSeeder extends Seeder
+class BooksTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,6 +17,6 @@ class BookTableSeeder extends Seeder
             'other'=>'ルイス・キャロル',
             'price'=>'4000',
         ];
-        DB::table('booklist')->insert($param);
+        DB::table('books')->insert($param);
     }
 }
