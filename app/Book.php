@@ -4,11 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Books extends Model
+class Book extends Model
 {
-    protected $guarded=array('id');
-
-    public $timestamps=false;
+    protected $guarded = array('id');
 
     public static $rules = array(
         'name' => 'required',

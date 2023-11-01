@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Books;
+use App\Book;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
     public function index(Request $request){
-        $items=Books::all();
+        $items=Book::all();
         return view('book.index',['items'=>$items]);
     }
 
@@ -20,8 +19,8 @@ class BookController extends Controller
         return view('book.add');
     }
     public function create(Request $request){
-        $this->validate($request,Books::$rules);
-        $books=new Books();
+        $this->validate($request,Book::$rules);
+        $books=new Book();
         $form=$request->all();
         unset($form['_token']);
         $books->fill($form)->save();
@@ -30,12 +29,12 @@ class BookController extends Controller
 
 
     public function edit(Request $request){
-        $item=Books::find($request->id);
+        $item=Book::find($request->id);
         return view('book.edit',['item'=>$item]);
     }
     public function update(Request $request){
-        $this->validate($request,Books::$rules);
-        $books=Books::find($request->id);
+        $this->validate($request,Book::$rules);
+        $books=Book::find($request->id);
         $form=$request->all();
         unset($form['_token']);
         $books->fill($form)->save();
@@ -44,11 +43,11 @@ class BookController extends Controller
 
 
     public function delete(Request $request){
-        $books=Books::find($request->id);
+        $books=Book::find($request->id);
         return view('book.del',['item'=>$books]);
     }
     public function remove(Request $request){
-        $books=Books::find($request->id)->delete();
+        Book::find($request->id)->delete();
         return redirect('/book');
     }
 }
