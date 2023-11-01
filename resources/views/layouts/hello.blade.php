@@ -11,7 +11,10 @@
             border: 1px solid black;
         }
         input[name="send"]{
-            float: right
+            float: right;
+        }
+        form{
+            margin: 0;
         }
     </style>
 </head>
@@ -23,8 +26,6 @@
         <ul>
             <li><a href="/book">表示ページ</a></li>
             <li><a href="/book/add">追加ページ</a></li>
-            <li><a href="/book/edit">更新ページ</a></li>
-            <li><a href="/book/del">削除ページ</a></li>
         </ul>
     </header>
     <div class="content">

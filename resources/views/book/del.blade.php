@@ -7,7 +7,7 @@
 @section('content')
 <form action="/book/del" method="post">
     @csrf
-    <input type="hidden" name="id" value="{{$id}}">
+    <input type="hidden" name="id" value="{{ $item->id}}">
     <table>
         <tr>
             <th>ID</th>
@@ -15,7 +15,7 @@
         </tr>
         <tr>
             <th>名前</th>
-            <td>{{ $item->id }}</td>
+            <td>{{ $item->name }}</td>
         </tr>
         <tr>
             <th>著者</th>

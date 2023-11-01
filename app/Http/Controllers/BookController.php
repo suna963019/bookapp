@@ -30,21 +30,25 @@ class BookController extends Controller
 
 
     public function edit(Request $request){
-        $items=Books::all();
-        return view('book.index',['items'=>$items]);
+        $item=Books::find($request->id);
+        return view('book.edit',['item'=>$item]);
     }
     public function update(Request $request){
-        $items=Books::all();
-        return view('book.index',['items'=>$items]);
+        $this->validate($request,Books::$rules);
+        $books=Books::find($request->id);
+        $form=$request->all();
+        unset($form['_token']);
+        $books->fill($form)->save();
+        return redirect('/book');
     }
 
 
     public function delete(Request $request){
-        $items=Books::all();
-        return view('book.index',['items'=>$items]);
+        $books=Books::find($request->id);
+        return view('book.del',['item'=>$books]);
     }
     public function remove(Request $request){
-        $items=Books::all();
-        return view('book.index',['items'=>$items]);
+        $books=Books::find($request->id)->delete();
+        return redirect('/book');
     }
 }
