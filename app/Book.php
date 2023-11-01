@@ -10,7 +10,7 @@ class Book extends Model
 
     public static $rules = array(
         'name' => 'required',
-        'other' => 'required',
+        'author' => 'required',
         'price' => 'required',
     );
 }

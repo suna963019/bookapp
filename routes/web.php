@@ -25,3 +25,5 @@ Route::post('/book/edit','BookController@update');
 
 Route::get('/book/del','BookController@delete');
 Route::post('/book/del','BookController@remove');
+
+Route::get('/book/search','BookController@search');

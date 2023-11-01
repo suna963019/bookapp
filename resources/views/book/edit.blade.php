@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <th>著者</th>
-                <td><input type="text" name="other" value="{{ $item->other }}"></td>
+                <td><input type="text" name="author" value="{{ $item->author}}"></td>
             </tr>
             <tr>
                 <th>値段</th>

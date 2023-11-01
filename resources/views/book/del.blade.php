@@ -19,7 +19,7 @@
         </tr>
         <tr>
             <th>著者</th>
-            <td>{{ $item->other }}</td>
+            <td>{{ $item->author}}</td>
         </tr>
         <tr>
             <th>値段</th>

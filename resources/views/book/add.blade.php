@@ -21,7 +21,7 @@
             </tr>
             <tr>
                 <th>著者</th>
-                <td><input type="text" name="other"></td>
+                <td><input type="text" name="author"></td>
             </tr>
             <tr>
                 <th>値段</th>
