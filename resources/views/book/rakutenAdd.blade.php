@@ -15,7 +15,7 @@
     <form action="/rakuten/add" method="post">
         @csrf
         <input type="hidden" name="name" value="{{ $item->name }}">
-        <input type="hidden" name="auther" value="{{ $item->author }}">
+        <input type="hidden" name="author" value="{{ $item->author }}">
         <input type="hidden" name="price" value="{{ $item->price }}">
         <td>
             <table>
