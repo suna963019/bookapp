@@ -26,6 +26,7 @@
         <ul>
             <li><a href="/book">表示ページ</a></li>
             <li><a href="/book/add">追加ページ</a></li>
+            <li><a href="/rakuten">楽天ページ</a></li>
         </ul>
     </header>
     <div class="content">

@@ -32,6 +32,19 @@ class BookController extends Controller
         }
         return view('book.rakuten', ['items' => $text,'count'=>$count]);
     }
+    public function rakutenAdd(Request $request)
+    {
+        return view('book.rakutenAdd',['item'=>$request]);
+    }
+    public function rakutenCreate(Request $request)
+    {
+        $this->validate($request, Book::$rules);
+        $books = new Book();
+        $form = $request->all();
+        unset($form['_token']);
+        $books->fill($form)->save();
+        return redirect('/book');
+    }
 
     // 人魚姫
     // ハンス・クリスチャン・アンデルセン

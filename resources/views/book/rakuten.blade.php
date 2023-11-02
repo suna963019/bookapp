@@ -23,9 +23,9 @@
         @foreach ($items as $array)
             @foreach ($array as $item)
                 {{-- {{dd($item)}} --}}
-                <form action="/update/">
+                <form action="/rakuten/add" method="GET">
                     <input type="hidden" name="name" value="{{ $item['title'] }}">
-                    <input type="hidden" name="auther" value="{{ $item['author'] }}">
+                    <input type="hidden" name="author" value="{{ $item['author'] }}">
                     <input type="hidden" name="price" value="{{ $item['itemPrice'] }}">
                     <tr>
                         <td>{{ $num++ }}</td>
