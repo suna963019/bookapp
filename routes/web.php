@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/rakuten','BookController@rakuten');
+
+
+Route::get('/rakuten/add','BookController@rakutenAdd');
+Route::post('/rakuten/add','BookController@rakutenCreate');
+
 Route::get('/book','BookController@index');
 
 Route::get('/book/add','BookController@add');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 class BookController extends Controller
 {
@@ -11,6 +12,25 @@ class BookController extends Controller
     {
         $items = Book::all();
         return view('book.index', ['items' => $items]);
+    }
+
+    public function rakuten(Request $request)
+    {
+        $client = new Client();
+        if(empty($request->page)){
+            $request->page=1;
+        }
+        try {
+            $count = $request->page;
+            $crawler = $client->request('GET', 'https://app.rakuten.co.jp/services/api/BooksTotal/Search/20170404?format=json&keyword=java&booksGenreId=000&applicationId=1061760652970954311&hits=30&page=' . $count);
+            $crawler = $crawler->getBody();
+            $text = json_decode($crawler, true);
+            $text = $text['Items'];
+            // dd($text);
+        } catch (\Throwable $th) {
+            $text = 'ERROR';
+        }
+        return view('book.rakuten', ['items' => $text,'count'=>$count]);
     }
 
     // 人魚姫
@@ -61,9 +81,9 @@ class BookController extends Controller
     public function search(Request $request)
     {
 
-        $name = Book::where('name','like','%'. $request->word.'%')->get();
-        $author = Book::where('author','like','%'. $request->word.'%')->where('name','not like','%'. $request->word.'%')->get();
-        $items=[$name,$author];
+        $name = Book::where('name', 'like', '%' . $request->word . '%')->get();
+        $author = Book::where('author', 'like', '%' . $request->word . '%')->where('name', 'not like', '%' . $request->word . '%')->get();
+        $items = [$name, $author];
         return view('book.search', [
             'check' => true,
             'items' => $items,

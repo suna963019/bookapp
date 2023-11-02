@@ -14,28 +14,23 @@
     </div>
     <form action="/book/edit" method="post">
         @csrf
-        <input type="hidden" name="id" value="{{ $item->id }}">
         <input type="hidden" name="check" value="true">
         <table>
             <tr>
-                <th>ID</th>
-                <td>{{ $item->id }}</td>
-            </tr>
-            <tr>
                 <th>名前</th>
-                <td><input type="text" name="name" value="{{ $item->name }}"></td>
+                <td>{{ $item->name }}</td>
             </tr>
             <tr>
                 <th>著者</th>
-                <td><input type="text" name="author" value="{{ $item->author}}"></td>
+                <td>{{ $item->author}}</td>
             </tr>
             <tr>
                 <th>値段</th>
-                <td><input type="text" name="price" value="{{ $item->price }}"></td>
+                <td>{{ $item->price }}円</td>
             </tr>
             <tr>
                 <th></th>
-                <td><input type="submit" value="更新"></td>
+                <td><input type="submit" value="追加"></td>
             </tr>
         </table>
     </form>
